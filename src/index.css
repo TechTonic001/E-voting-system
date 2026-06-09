@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-surface: #18181f;
+  --color-surface-elevated: #1f1f28;
+  --color-border: #27272f;
+  --color-teal: #00d4aa;
+  --color-green: #22c55e;
+  --color-orange: #f97316;
+  --color-red: #ef4444;
+  --color-bg: #09090f;
+}
+
+@layer base {
+  body {
+    @apply font-body antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+    color: var(--color-text-primary);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+.animate-spin-border {
+  animation: spin-border 0.8s linear infinite;
+}
+
+.animate-page-enter {
+  animation: page-enter 0.3s ease forwards;
+}
+
+.candidate-card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.candidate-card:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.progress-bar {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.donut-segment {
+  transition: stroke-dasharray 0.8s ease, stroke-dashoffset 0.8s ease;
+}
